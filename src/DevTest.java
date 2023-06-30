@@ -1,17 +1,17 @@
+import java.util.Scanner;
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class DevTest {
+
+    // Part A getNonZeroLenString test code
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        Scanner in = new Scanner(System.in);
+        String firstName = "";
+        String lastName = "";
+        firstName = SafeInput.getNonZeroLenString(in, "Enter your first name");
+        lastName = SafeInput.getNonZeroLenString(in, "Enter your last name");
+        System.out.println("\nYour full name is: " + firstName + " " + lastName);
     }
+
 }
