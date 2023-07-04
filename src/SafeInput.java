@@ -19,4 +19,34 @@ public class SafeInput {
         return retString;
 
     }
+
+    // Part B getInt
+    /**
+     *
+     * @param pipe a Scanner opened to read from System.in
+     * @param prompt for the user
+     * @return a String response that is not zero length
+     */
+    public static int getInt(Scanner pipe, String prompt) {
+        int num = 0; // initialize variable that will return the int value
+        boolean validInput; // initialize variable that sets input flag as T/F
+
+        do {
+            validInput = true;
+            System.out.print("\n"+prompt+": "); // show prompt
+
+            if (pipe.hasNextInt()) { // checks if the input is an int
+                num = pipe.nextInt(); // if yes, read the int
+            } else {
+                String trash = pipe.next(); // Read and discard non-integer input
+                System.out.println("You have input value of " + trash);
+                System.out.println("Invalid input. Please enter an integer.");
+                validInput = false;
+            }
+
+            pipe.nextLine();
+        } while (!validInput);
+
+        return num;
+    }
 }
