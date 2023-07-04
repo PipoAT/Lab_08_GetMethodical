@@ -51,10 +51,19 @@ public class DevTest {
 //    }
 
     // Part F getYNConfirm test code
+//    public static void main(String[] args) {
+//        Scanner pipe = new Scanner(System.in);
+//        boolean userConfirmation = SafeInput.getYNConfirm(pipe, "Are you sure? [Y/N]: ");
+//        System.out.println("User confirmation: " + userConfirmation);
+//        pipe.close();
+//    }
+
+    // Part G getRegExString test code
     public static void main(String[] args) {
         Scanner pipe = new Scanner(System.in);
-        boolean userConfirmation = SafeInput.getYNConfirm(pipe, "Are you sure? [Y/N]: ");
-        System.out.println("User confirmation: " + userConfirmation);
+        String regex = "\\d{3}-\\d{3}-\\d{4}"; // Example RegEx pattern for a phone number
+        String userInput = SafeInput.getRegExString(pipe, "Enter a phone number (###-###-####): ", regex);
+        System.out.println("User input: " + userInput);
         pipe.close();
     }
 

@@ -179,4 +179,38 @@ public class SafeInput {
 
         return userConfirmation;
     }
+
+
+    // Part G getRegExString
+    /**
+     *
+     * @param pipe a Scanner opened to read from System.in
+     * @param prompt for the user
+     * @param regex for the pattern of string the string must follow
+     * @return a String response that is not zero length
+     */
+    public static String getRegExString(Scanner pipe, String prompt, String regex) {
+        String userInput = ""; // initialize variable for the string input/return string
+        boolean validInput = false; // initialize variable for the input flag (T/F)
+
+        do {
+            System.out.print(prompt); // prompt user to input string
+            if (pipe.hasNextLine()) { // checks to ensure user inputs a valid string
+                userInput = pipe.nextLine();
+
+                if (userInput.matches(regex)) { // checks to ensure that it matches the pattern or regex
+                    validInput = true;
+                } else {
+                    // outputs error message if it does not match regex pattern
+                    System.out.println("Input does not match the specified pattern. Please try again by entering in following pattern: " + regex);
+                }
+            } else { // if user inputs an invalid input, prompt error
+                String invalidInput = pipe.nextLine(); // Read and discard the invalid input
+                System.out.println("Your input was " + invalidInput);
+                System.out.println("Invalid input. Please enter a valid string.");
+            }
+        } while (!validInput);
+
+        return userInput;
+    }
 }
