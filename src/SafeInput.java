@@ -74,9 +74,79 @@ public class SafeInput {
                 validInput = false;
             }
 
-            pipe.nextLine();
+            pipe.nextLine(); // Clear the newline character from the input buffer
         } while (!validInput);
 
         return num;
+    }
+
+    // Part D getRangedInt
+    /**
+     *
+     * @param pipe a Scanner opened to read from System.in
+     * @param prompt for the user
+     * @param low for lower limit of integer
+     * @param high for upper limit of integer
+     * @return a String response that is not zero length
+     */
+    public static int getRangedInt(Scanner pipe, String prompt, int low, int high) {
+        int rangedInt = 0; // initialize variable that returns ranged int
+        boolean validInput = false; // initialize variable that sets input flag as T/F
+
+        do {
+            System.out.print(prompt);
+            if (pipe.hasNextInt()) { // checks if input is an integer
+                rangedInt = pipe.nextInt();
+                pipe.nextLine(); // Clear the newline character from the input buffer
+
+                if (rangedInt >= low && rangedInt <= high) { // checks if it is within the stated bounds of high/low
+                    validInput = true;
+                } else { // output value is int but out of the specified range
+                    System.out.println("You input the value: " + rangedInt);
+                    System.out.println("Input out of range. Please try again.");
+                }
+            } else {
+                String trash = pipe.nextLine(); // Read and discard the non-integer input
+                System.out.println("You have input value of: " + trash);
+                System.out.println("Invalid input. Please enter a valid integer.");
+            }
+        } while (!validInput);
+
+        return rangedInt;
+    }
+
+    // Part E getRangedDouble
+    /**
+     *
+     * @param pipe a Scanner opened to read from System.in
+     * @param prompt for the user
+     * @param low for lower limit of double
+     * @param high for upper limit of double
+     * @return a String response that is not zero length
+     */
+    public static double getRangedDouble(Scanner pipe, String prompt, double low, double high) {
+        double rangedDouble = 0; // initialize variable that returns ranged double
+        boolean validInput = false; // initialize variable that sets input flag as T/F
+
+        do {
+            System.out.print(prompt);
+            if (pipe.hasNextDouble()) { // checks if input is a double
+                rangedDouble = pipe.nextDouble();
+                pipe.nextLine(); // Clear the newline character from the input buffer
+
+                if (rangedDouble >= low && rangedDouble <= high) { // checks if it is within the stated bounds of high/low
+                    validInput = true;
+                } else { // output value is double but out of the specified range
+                    System.out.println("You input the value: " + rangedDouble);
+                    System.out.println("Input out of range. Please try again.");
+                }
+            } else {
+                String trash = pipe.nextLine(); // Read and discard the non-double input
+                System.out.println("You have input value of: " + trash);
+                System.out.println("Invalid input. Please enter a valid double.");
+            }
+        } while (!validInput);
+
+        return rangedDouble;
     }
 }

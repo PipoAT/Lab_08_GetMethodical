@@ -22,12 +22,32 @@ public class DevTest {
 //        System.out.println("\nYou entered integer: " + intNumber);
 //    }
 
-    // Part C getInt test code
+    // Part C getDouble test code
+//    public static void main(String[] args) {
+//        Scanner in = new Scanner(System.in);
+//        double doubleNumber = 0;
+//        doubleNumber = SafeInput.getDouble(in, "Enter an double");
+//        System.out.println("\nYou entered double: " + doubleNumber);
+//    }
+
+    // Part D getRangedInt test code
+//    public static void main(String[] args) {
+//        Scanner pipe = new Scanner(System.in);
+//        int low = 1;
+//        int high = 10;
+//        int userInput = SafeInput.getRangedInt(pipe, "Enter a number between " + low + " - " + high + ": ", low, high);
+//        System.out.println("User input: " + userInput);
+//        pipe.close();
+//    }
+
+    // Part E getRangedInt test code
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        double doubleNumber = 0;
-        doubleNumber = SafeInput.getDouble(in, "Enter an double");
-        System.out.println("\nYou entered double: " + doubleNumber);
+        Scanner pipe = new Scanner(System.in);
+        double low = 3.2;
+        double high = 3.5;
+        double userInput = SafeInput.getRangedDouble(pipe, "Enter a number between " + low + " - " + high + ": ", low, high);
+        System.out.println("User input: " + userInput);
+        pipe.close();
     }
 
 }
