@@ -41,12 +41,20 @@ public class DevTest {
 //    }
 
     // Part E getRangedInt test code
+//    public static void main(String[] args) {
+//        Scanner pipe = new Scanner(System.in);
+//        double low = 3.2;
+//        double high = 3.5;
+//        double userInput = SafeInput.getRangedDouble(pipe, "Enter a number between " + low + " - " + high + ": ", low, high);
+//        System.out.println("User input: " + userInput);
+//        pipe.close();
+//    }
+
+    // Part F getYNConfirm test code
     public static void main(String[] args) {
         Scanner pipe = new Scanner(System.in);
-        double low = 3.2;
-        double high = 3.5;
-        double userInput = SafeInput.getRangedDouble(pipe, "Enter a number between " + low + " - " + high + ": ", low, high);
-        System.out.println("User input: " + userInput);
+        boolean userConfirmation = SafeInput.getYNConfirm(pipe, "Are you sure? [Y/N]: ");
+        System.out.println("User confirmation: " + userConfirmation);
         pipe.close();
     }
 

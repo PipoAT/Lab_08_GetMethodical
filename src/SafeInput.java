@@ -149,4 +149,34 @@ public class SafeInput {
 
         return rangedDouble;
     }
+
+    // Part F getYNConfirm
+    /**
+     *
+     * @param pipe a Scanner opened to read from System.in
+     * @param prompt for the user
+     * @return a String response that is not zero length
+     */
+    public static boolean getYNConfirm(Scanner pipe, String prompt) {
+        boolean validInput = false; // initialize variable as flag of valid input T/F
+        boolean userConfirmation = false; // initialize variable as flag of yes or no (true or false)
+
+        do {
+            System.out.print(prompt); // prompt user to input
+            String userInput = pipe.nextLine().trim().toLowerCase(); // changes uppercase to lowercase to allow for both cases
+
+            if (userInput.equals("y")) { // checks if user input was Y or y
+                validInput = true; // sets valid response to true
+                userConfirmation = true; // sets user response to true or yes
+            } else if (userInput.equals("n")) { // checks if user input was N or n
+                validInput = true; // sets valid response to true, but leaves user response as false or no
+            } else {
+                // if user does not input Y, y, N, or n, print out error
+                System.out.println("You input a response of: " + userInput);
+                System.out.println("Invalid input. Please enter 'Y' or 'N'.");
+            }
+        } while (!validInput);
+
+        return userConfirmation;
+    }
 }
