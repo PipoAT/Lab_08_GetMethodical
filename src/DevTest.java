@@ -15,11 +15,19 @@ public class DevTest {
 //    }
 
     // Part B getInt test code
+//    public static void main(String[] args) {
+//        Scanner in = new Scanner(System.in);
+//        int intNumber = 0;
+//        intNumber = SafeInput.getInt(in, "Enter an integer");
+//        System.out.println("\nYou entered integer: " + intNumber);
+//    }
+
+    // Part C getInt test code
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int intNumber = 0;
-        intNumber = SafeInput.getInt(in, "Enter an integer");
-        System.out.println("\nYou entered integer: " + intNumber);
+        double doubleNumber = 0;
+        doubleNumber = SafeInput.getDouble(in, "Enter an double");
+        System.out.println("\nYou entered double: " + doubleNumber);
     }
 
 }
