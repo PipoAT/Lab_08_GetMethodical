@@ -213,4 +213,42 @@ public class SafeInput {
 
         return userInput;
     }
+
+    // Part H/Program 06 prettyHeader
+    /**
+     *
+     * @param msg a string that will be centered within the header
+     */
+    public static void prettyHeader(String msg) {
+        int totalWidth = 60;
+        int msgWidth = msg.length();
+        int padding = (totalWidth - msgWidth - 6) / 2; // Calculate the padding on each side
+
+        // Print the top line
+        for (int i = 0; i < totalWidth; i++) {
+            System.out.print("*");
+        }
+        System.out.println();
+
+        // Print the second line with centered message
+        System.out.print("***");
+        for (int i = 0; i < padding; i++) {
+            System.out.print(" ");
+        }
+        System.out.print(msg);
+        for (int i = 0; i < padding; i++) {
+            System.out.print(" ");
+        }
+        // If the message length is odd, add one extra space on the right side
+        if (msgWidth % 2 != 0) {
+            System.out.print(" ");
+        }
+        System.out.println("***");
+
+        // Print the bottom line
+        for (int i = 0; i < totalWidth; i++) {
+            System.out.print("*");
+        }
+        System.out.println();
+    }
 }
